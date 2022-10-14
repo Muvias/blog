@@ -1,0 +1,1 @@
+export const API_URL="https://arcane-cliffs-15437.herokuapp.com/api/posts/?populate=*"
