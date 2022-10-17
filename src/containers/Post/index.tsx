@@ -25,7 +25,7 @@ export default function Post({ post }: PostProps) {
                 <meta name="description" content={removeHtml(post.htmlContent).slice(0, 150)} />
             </Head>
             <Header />
-            {console.log(post.attributes.title)}
+
             <MainContainer>
                 <Heading>{post.attributes.title}</Heading>
                 <PostCover coverUrl={post.attributes.cover.data.attributes.url} alt={post.attributes.title} />
