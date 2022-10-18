@@ -6,3 +6,11 @@ export const Container = styled.div`
 
     gap: 2rem;
 `;
+
+export const Category = styled.div`
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+
+    padding: 1rem 0;
+`;
