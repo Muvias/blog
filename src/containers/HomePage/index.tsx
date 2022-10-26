@@ -13,7 +13,7 @@ export default function HomePage({ posts, category }: HomePageProps) {
     return (
       <>
         <Head>
-          <title>Vinicius Perazza</title>
+          <title>{category  && `${category} - `}Vinicius Perazza</title>
           <meta name="description" content="Este é meu blog de tecnologia." />
         </Head>
         {category && <Category>Categoria: {category}</Category>}

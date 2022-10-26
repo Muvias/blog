@@ -7,8 +7,8 @@ import MainContainer from "../../components/MainContainer";
 import PostContainer from "../../components/PostContainer";
 import PostCover from "../../components/PostCover";
 import PostDetails from "../../components/PostDetails";
+import Comments from "../../components/Comments";
 
-import Comments from "../../Comments";
 
 import { PostData } from "../../domain/posts/post"
 import { removeHtml } from "../../utils/remove-html";
