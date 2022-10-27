@@ -8,7 +8,7 @@ import Header from "../../../components/Header";
 import HomePage from "../../../containers/HomePage";
 import { useRouter } from "next/router";
 import { PaginationData } from "../../../domain/posts/paginations";
-import { countAllPosts } from "../../../data/posts/count-all-posts";
+import { countAllCategoryPosts } from "../../../data/posts/count-all-posts";
 
 export type ParamProps = {
   posts: PostData[];
@@ -25,7 +25,7 @@ export default function Param({ posts, category, pagination }: ParamProps) {
   return (
     <>
       <Header />
-      <HomePage posts={posts} />
+      <HomePage posts={posts} category={category} pagination={pagination} />
       <Footer />
     </>
   )
@@ -50,8 +50,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const categoryQuery = category ? `&filters[category][name]=${category}` : '';
 
   const posts = await getAllPosts(`&sort=id:desc&pagination[start]=${startFrom}&pagination[limit]=${postsPerPage}${categoryQuery}`);
-
-  const numberOfPosts = Number(await countAllPosts(categoryQuery))
+  
+  const numberOfPosts = Number(await countAllCategoryPosts(categoryQuery))
   const pagination: PaginationData = {
     nextPage,
     previousPage,
