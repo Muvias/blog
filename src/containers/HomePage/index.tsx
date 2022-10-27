@@ -1,10 +1,11 @@
 import Head from "next/head";
+import Link from "next/link";
 import MainContainer from "../../components/MainContainer";
 import Pagination from "../../components/Pagination";
 import PostCard from "../../components/PostCard";
 import { PaginationData } from "../../domain/posts/paginations";
 import { PostData } from "../../domain/posts/post";
-import { Category, Container } from "./styles";
+import { AllPostsLinks, Category, Container } from "./styles";
 
 export type HomePageProps = {
   posts: PostData[];
@@ -16,7 +17,9 @@ export default function HomePage({ posts, category, pagination }: HomePageProps)
     return (
       <>
         <Head>
-          <title>{category  && `${category} - `}Vinicius Perazza</title>
+          <title>
+            {category  && `${category} - `} Vinicius Perazza {pagination?.nextPage && ` - Página ${pagination.nextPage - 1}`}
+          </title>
           <meta name="description" content="Este é meu blog de tecnologia." />
         </Head>
         {category && <Category>Categoria: {category}</Category>}
@@ -32,6 +35,7 @@ export default function HomePage({ posts, category, pagination }: HomePageProps)
             ))}
           </Container>
           <Pagination {...pagination} />
+          {!pagination?.nextPage && <Link href={"/post/page/1"} passHref><AllPostsLinks>Ver mais</AllPostsLinks></Link>}
         </MainContainer>
       </>
       )

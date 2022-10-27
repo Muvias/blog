@@ -14,3 +14,10 @@ export const Category = styled.div`
 
     padding: 1rem 0;
 `;
+
+export const AllPostsLinks = styled.a`
+    display: block;
+    text-align: center;
+
+    margin: 2rem 0;
+`

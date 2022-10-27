@@ -42,7 +42,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const page = Number(context.params.param[0]);
   const category = context.params.param[1] || '';
 
-  const postsPerPage = 3;
+  const postsPerPage = 6;
   const startFrom = (page - 1) * postsPerPage;
   const nextPage = page + 1;
   const previousPage = page - 1;
