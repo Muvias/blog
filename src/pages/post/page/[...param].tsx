@@ -1,14 +1,14 @@
+import { useRouter } from "next/router";
 import { GetStaticProps, GetStaticPaths } from "next"
 
 import { getAllPosts } from "../../../data/posts/get-all-posts";
+import { countAllCategoryPosts } from "../../../data/posts/count-all-posts";
 import { PostData } from "../../../domain/posts/post";
+import { PaginationData } from "../../../domain/posts/paginations";
 
 import Footer from "../../../components/Footer";
 import Header from "../../../components/Header";
 import HomePage from "../../../containers/HomePage";
-import { useRouter } from "next/router";
-import { PaginationData } from "../../../domain/posts/paginations";
-import { countAllCategoryPosts } from "../../../data/posts/count-all-posts";
 
 export type ParamProps = {
   posts: PostData[];
@@ -40,6 +40,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const page = Number(context.params.param[0]);
+
   const category = context.params.param[1] || '';
 
   const postsPerPage = 6;

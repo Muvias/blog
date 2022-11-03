@@ -1,10 +1,13 @@
 import { GetStaticProps } from "next"
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import HomePage from "../containers/HomePage";
+
 import { getAllPosts } from "../data/posts/get-all-posts";
 
 import { PostData } from "../domain/posts/post";
+
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import HomePage from "../containers/HomePage";
+
 
 export type HomeProps = {
   posts: PostData[];
